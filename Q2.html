@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 02 Solution</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            background-color: #1a2727;
+        }
+
+        h1 {
+            text-align: center;
+            color: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Question 02 Solution</h1>
+
+    <script>
+
+        class Student {
+            constructor(name, email) {
+                this.name = name;
+                this.email = email;
+                this.courses = [];
+            }
+
+            enroll(course) {
+                this.courses.push(course);
+                console.log(`${this.name} has been enrolled in ${course}.`);
+            }
+
+            showCourses() {
+                console.log(`${this.name}'s enrolled courses: ${this.courses.join(", ")}`);
+            }
+        }
+
+        class Admission {
+            constructor() {
+                this.students = [];
+            }
+            enrollStudent(student) {
+                this.students.push(student);
+                console.log(`${student.name} has been enrolled.`);
+            }
+
+            assignCourse(student, course) {
+                if (student instanceof Student && student.email && course) {
+                    student.enroll(course);
+                } else {
+                    console.log("Invalid student or course infomation.");
+                }
+            }
+
+            showEnrolledStudents() {
+                console.log("Enrolled students:-");
+                this.students.forEach(student => console.log(`- ${student.name}, ${student.email} `))
+            }
+        }
+
+        const admissionOffice = new Admission();
+
+        const student1 = new Student('Mithun', 'mithun@pw.live');
+
+        admissionOffice.enrollStudent(student1); 
+
+        admissionOffice.assignCourse(student1, 'Full Stack Web Development');
+
+        student1.showCourses();
+
+        admissionOffice.showEnrolledStudents();
+
+
+
+
+    </script>
+</body>
+
+</html>

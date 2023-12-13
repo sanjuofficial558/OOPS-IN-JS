@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 01 Solution</title>
+    <style>
+        *{
+            margin: 0;padding: 0;
+            background-color: #094d4d;
+        }
+        h1{
+            text-align: center;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>Question 01 Solution</h1>
+    <script>
+        class BankAccount{
+            constructor(name, amount){
+                this.name = name;
+                this.amount = amount;
+            }
+            checkBalance(){
+                console.log(`Account Balance for ${this.name} : ${this.amount} `);
+            }
+            deposit(depositAmount){
+                if(depositAmount>0){
+                    this.amount += depositAmount;
+                    console.log(`Deposited Rs. ${depositAmount}. New Balance: Rs. ${this.amount} `);
+                }
+                else{
+                    console.log(`Invalid Deposit Amount. Please Enter a Valid Amount.`);
+                }
+            }
+            whithdraw(withdrawAmt){
+                if(this.amount > withdrawAmt && withdrawAmt > 0){
+                    this.amount -= withdrawAmt;
+                    console.log(`Withdrawn Rs. ${withdrawAmt}. Remaining Balance: Rs. ${this.amount} `);
+                }
+                else if(this.amount < withdrawAmt){
+                    console.log(`Insufficient funds for withdrawal.`);
+                }
+                else{
+                    console.log(`Invalid Deposit Amount. Please Enter a Valid Amount.`);
+                }
+            }
+        }
+
+        const myAccount = new BankAccount("Sanjeev K", 1000);
+        myAccount.checkBalance();
+        myAccount.deposit(500);
+        myAccount.deposit(-50);
+        myAccount.whithdraw(200);
+        myAccount.whithdraw(1500);
+        myAccount.whithdraw(-500);
+        myAccount.checkBalance();
+    </script>
+</body>
+</html>

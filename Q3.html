@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 03 Solution</title>
+    <style>
+        *{
+            margin: 0;padding: 0;
+            background-color: #1a2727;
+        }
+        h1{
+            text-align: center;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>Question 03 Solution</h1>
+    <script>
+        class Temperature{
+            constructor(){
+                this.celsius = 0;
+                this.fahrenheit = 32;
+            }
+            get getCelsius(){
+                return this.celsius;
+            }
+            get getFahrenheit(){
+                return this.fahrenheit;
+            }
+            set setCelsius(cel){
+                this.celsius = cel;
+                this.fahrenheit = cel * (9/5) + 32;
+            }
+            set setFahrenheit(fahren){
+                this.fahrenheit = fahren;
+                this.celsius = (fahren-32) * 5/9;
+            }
+        }
+
+        const temperature = new Temperature();
+
+        console.log(`Initial Celsius: ${temperature.getCelsius}°C `);
+        console.log(`Initial Fahrenheit: ${temperature.getFahrenheit}°F `);
+
+        temperature.setCelsius = 25;
+        console.log(`Celsius: ${temperature.getCelsius}°C`);
+        console.log(`Fahrenheit: ${temperature.getFahrenheit}°F`);
+
+        temperature.setFahrenheit = 68;
+        console.log(`Celsius: ${temperature.getCelsius}°C`);
+        console.log(`Fahrenheit: ${temperature.getFahrenheit}°F`);
+
+    </script>
+</body>
+</html>

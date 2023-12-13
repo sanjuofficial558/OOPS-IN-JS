@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 04 Solution</title>
+    <style>
+        *{
+            margin: 0;padding: 0;
+            background-color: #1a2727;
+        }
+        h1{
+            text-align: center;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <h1>Question 04 Solution</h1>
+    <script>
+        class Shape{
+            constructor(){
+            }
+
+            calculateArea(){}
+            calculatePerimeter(){}
+        }
+
+        class Circle extends Shape{
+            constructor(r){
+                super();
+                this.radius = r;
+            }
+
+            calculateArea(){
+                this.area = Math.PI * Math.pow(this.radius, 2);
+                return this.area;
+            }
+            calculatePerimeter(){
+                this.perimeter = 2 * Math.PI * this.radius;
+                return this.perimeter;
+            }
+        }
+
+        class Rectangle extends Shape{
+            constructor(l,w){
+                super();
+                this.lenght=l;
+                this.width = w;
+            }
+            calculateArea(){
+                this.area = this.lenght * this.width;
+                return this.area;
+            }
+            calculatePerimeter(){
+                this.perimeter = 2 * (this.lenght + this.width );
+                return this.perimeter;
+            }
+        }
+
+        class Triangle extends Shape{
+            constructor(a,b,c,d,e){
+                super();
+                this.base=a;
+                this.height = b;
+                this.c = c;
+                this.d = d;
+                this.e = e;
+            }
+            calculateArea(){
+                this.area = 1/2 * (this.base * this.height);
+                return this.area;
+            }
+        }
+        const circle = new Circle(5);
+        const rectangle = new Rectangle(4,6);
+        const triangle = new Triangle(8,6,5,7,10);
+
+        console.log(`Circle - Area: ${circle.calculateArea()}, Perimeter: ${
+            circle.calculatePerimeter()} `);
+
+        console.log(`Rectangle - Area: ${rectangle.calculateArea()}, Perimeter: ${
+            rectangle.calculatePerimeter()} `);
+
+        console.log(`Triangle - Area: ${triangle.calculateArea()}`);
+
+    </script>
+</body>
+</html>
